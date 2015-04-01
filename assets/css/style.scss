@@ -23,6 +23,9 @@
 
 	// Styles for desktop
 	.storefront-single-product-pagination {
+		z-index: 9999;
+		position: relative;
+
 		h2 {
 			@include screen_reader_text;
 		}
