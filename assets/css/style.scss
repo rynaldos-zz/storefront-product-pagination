@@ -1,0 +1,96 @@
+@import 'susy';
+@import 'bourbon';
+@import '../../../../themes/storefront/sass/utils/variables';
+@import '../../../../themes/storefront/sass/utils/mixins';
+
+// Styles for mobile
+.storefront-single-product-pagination {
+	a {
+		display: block;
+		width: 48%;
+
+		&[rel="prev"] {
+			float: left;
+		}
+
+		&[rel="next"] {
+			float: right;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+
+	// Styles for desktop
+	.storefront-single-product-pagination {
+		h2 {
+			@include screen_reader_text;
+		}
+
+		a {
+			display: block;
+			width: 17.942em;
+			position: fixed;
+			float: none;
+			background-color: $body-background;
+			padding: 1em;
+			top: 45%;
+
+			img {
+				width: 4.236em;
+				opacity: 0.5;
+				@include transition(all .5s ease);
+			}
+
+			&:hover {
+				img {
+					opacity: 1;
+				}
+			}
+
+			.title {
+				width: 10.5em;
+			}
+
+			&[rel="prev"] {
+				left: -11.706em;
+				border-left: 0;
+				@include transition(left .5s ease);
+
+				img {
+					float: right;
+					margin-left: 1em;
+				}
+
+				&:hover {
+					left: 0;
+				}
+
+				.title {
+					float: left;
+					display: block;
+				}
+			}
+
+			&[rel="next"] {
+				right: -11.706em;
+				border-right: 0;
+				@include transition(right .5s ease);
+
+				img {
+					float: left;
+					margin-right: 1em;
+				}
+
+				&:hover {
+					right: 0;
+				}
+
+				.title {
+					float: right;
+					display: block;
+				}
+			}
+		}
+	}
+}

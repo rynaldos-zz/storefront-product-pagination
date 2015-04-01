@@ -1,0 +1,4 @@
+*** Storefront Product Pagination Changelog ***
+
+2015.04.01 - version 1.0.0
+* Initial release
