@@ -1,5 +1,5 @@
 === Storefront Product Pagination ===
-Contributors: jameskoster, WooThemes
+Contributors: jameskoster, woothemes
 Tags: woocommerce, ecommerce, products, storefront, pagination, next, previous
 Requires at least: 3.5
 Tested up to: 4.1.1
