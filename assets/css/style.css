@@ -8,7 +8,7 @@
 
 @media screen and (min-width: 768px) {
   .storefront-single-product-pagination {
-    z-index: 9999;
+    z-index: 999999;
     position: relative; }
     .storefront-single-product-pagination h2 {
       clip: rect(1px 1px 1px 1px);
