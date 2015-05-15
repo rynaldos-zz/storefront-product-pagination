@@ -24,7 +24,6 @@
 	// Styles for desktop
 	.storefront-single-product-pagination {
 		z-index: 999999;
-		position: relative;
 
 		h2 {
 			@include screen_reader_text;
@@ -38,6 +37,7 @@
 			background-color: $body-background;
 			padding: 1em;
 			top: 45%;
+			z-index: 999999;
 
 			img {
 				width: 4.236em;

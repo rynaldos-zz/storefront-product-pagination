@@ -8,8 +8,7 @@
 
 @media screen and (min-width: 768px) {
   .storefront-single-product-pagination {
-    z-index: 999999;
-    position: relative; }
+    z-index: 999999; }
     .storefront-single-product-pagination h2 {
       clip: rect(1px 1px 1px 1px);
       /* IE6, IE7 */
@@ -22,7 +21,8 @@
       float: none;
       background-color: #FCFCFC;
       padding: 1em;
-      top: 45%; }
+      top: 45%;
+      z-index: 999999; }
       .storefront-single-product-pagination a img {
         width: 4.236em;
         opacity: 0.5;

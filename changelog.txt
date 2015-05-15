@@ -1,7 +1,0 @@
-*** Storefront Product Pagination Changelog ***
-
-2015.04.27 - version 1.0.1
-* Fix - z-index on buttons
-
-2015.04.01 - version 1.0.0
-* Initial release

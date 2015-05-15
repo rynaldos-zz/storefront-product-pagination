@@ -3,7 +3,7 @@
  * Plugin Name:			Storefront Product Pagination
  * Plugin URI:			http://woothemes.com/storefront/
  * Description:			Add unobstrusive links to next/previous products on your WooCommerce single product pages.
- * Version:				1.0.1
+ * Version:				1.1.0
  * Author:				WooThemes
  * Author URI:			http://woothemes.com/
  * Requires at least:	4.0.0
@@ -84,7 +84,7 @@ final class Storefront_Product_Pagination {
 		$this->token 			= 'storefront-product-pagination';
 		$this->plugin_url 		= plugin_dir_url( __FILE__ );
 		$this->plugin_path 		= plugin_dir_path( __FILE__ );
-		$this->version 			= '1.0.1';
+		$this->version 			= '1.1.0';
 
 		register_activation_hook( __FILE__, array( $this, 'install' ) );
 
@@ -255,6 +255,22 @@ final class Storefront_Product_Pagination {
 			'settings'		=> 'spp_background_color',
 			'priority'		=> 30,
 		) ) );
+
+		/**
+		 * Same category
+		 */
+		$wp_customize->add_setting( 'spp_same_cat', array(
+			'default'   => false,
+		) );
+
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'spp_same_cat', array(
+			'label'       => __( 'Display products in same category', 'storefront-product-pagination' ),
+			'description' => __( 'When enabled, pagination will only display links to products in the same category as the one currently being viewed.', 'storefront-product-pagination' ),
+			'section'     => 'spp_section',
+			'settings'    => 'spp_same_cat',
+			'type'        => 'checkbox',
+			'priority'    => 40,
+		) ) );
 	}
 
 	/**
@@ -297,6 +313,15 @@ final class Storefront_Product_Pagination {
 		$next_product 				= get_next_post();
 		$previous_product_thumbnail	= '';
 		$next_product_thumbnail		= '';
+		$same_cat 					= get_theme_mod( 'spp_same_cat', false );
+
+		$in_same_term 	= false;
+		$taxonomy 		= 'category';
+
+		if ( true == $same_cat ) {
+			$in_same_term 	= true;
+			$taxonomy 		= 'product_cat';
+		}
 
 		// If a next/previous product exists, get the thumbnail (or place holder)
 		if ( $previous_product ) {
@@ -318,8 +343,8 @@ final class Storefront_Product_Pagination {
 		if ( $next_product || $previous_product ) {
 			echo '<nav class="storefront-single-product-pagination">';
 				echo '<h2>' . __( 'More products', 'storefront' ) . '</h2>';
-				previous_post_link( '%link', $previous_product_thumbnail . '<span class="title">&larr; %title</span>' );
-				next_post_link( '%link', $next_product_thumbnail . '<span class="title">%title &rarr;</span>' );
+				previous_post_link( '%link', $previous_product_thumbnail . '<span class="title">&larr; %title</span>', $in_same_term, '', $taxonomy );
+				next_post_link( '%link', $next_product_thumbnail . '<span class="title">%title &rarr;</span>', $in_same_term, '', $taxonomy );
 			echo '</nav>';
 		}
 	}
