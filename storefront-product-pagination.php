@@ -3,11 +3,11 @@
  * Plugin Name:			Storefront Product Pagination
  * Plugin URI:			http://woothemes.com/storefront/
  * Description:			Add unobstrusive links to next/previous products on your WooCommerce single product pages.
- * Version:				1.1.0
+ * Version:				1.1.1
  * Author:				WooThemes
  * Author URI:			http://woothemes.com/
  * Requires at least:	4.0.0
- * Tested up to:		4.0.0
+ * Tested up to:		4.2.2
  *
  * Text Domain: storefront-product-pagination
  * Domain Path: /languages/
@@ -221,8 +221,8 @@ final class Storefront_Product_Pagination {
 	 * @return  void
 	 */
 	public function spp_install_storefront_notice() {
-		echo '<div class="updated">
-				<p>' . __( 'Storefront Product Pagination requires that you use Storefront as your parent theme.', 'storefront-product-pagination' ) . ' <a href="' . esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-theme&theme=storefront' ), 'install-theme_boutique' ) ) .'">' . __( 'Install Storefront now', 'storefront-product-pagination' ) . '</a></p>
+		echo '<div class="notice is-dismissible updated">
+				<p>' . __( 'Storefront Product Pagination requires that you use Storefront as your parent theme.', 'storefront-product-pagination' ) . ' <a href="' . esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-theme&theme=storefront' ), 'install-theme_storefront' ) ) .'">' . __( 'Install Storefront now', 'storefront-product-pagination' ) . '</a></p>
 			</div>';
 	}
 
