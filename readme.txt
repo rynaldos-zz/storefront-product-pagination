@@ -37,7 +37,7 @@ The links will appear on any single product page, providing there is more than o
 
 == Changelog ==
 
-= 1.1.1 - 23.06.2015 =
+= 1.1.1 - 06.23.2015 =
 * Fix - Storefront install prompt no longer installs a child theme.
 
 = 1.1.0 - 05.15.2015 =
