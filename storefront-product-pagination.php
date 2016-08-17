@@ -281,7 +281,7 @@ final class Storefront_Product_Pagination {
 	public function spp_styles() {
 		wp_enqueue_style( 'spp-styles', plugins_url( '/assets/css/style.css', __FILE__ ) );
 
-		$heading_background_color 	= storefront_sanitize_hex_color( get_theme_mod( 'spp_background_color', apply_filters( 'spp_default_background_color', '#ffffff' ) ) );
+		$heading_background_color = get_theme_mod( 'spp_background_color', apply_filters( 'spp_default_background_color', '#ffffff' ) );
 
 		$spp_style = '
 		.storefront-single-product-pagination a {
